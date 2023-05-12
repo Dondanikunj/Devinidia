@@ -56,7 +56,7 @@ extension ViewController {
                                      "type": "Gmail",
                                      "uid": "xyz"]
         
-        APIManager.apiCall("http://ariel.itcc.net.au/api/v1/auth/login", header: "", data: parameterDictionary, method: .POST) { success, data, error in
+        APIManager.apiCall(Constant.ServerAPI.URL.kLogin, header: "", data: parameterDictionary, method: .POST) { success, data, error in
             if let data = data {
                 do {
                     let dict = data as? [String: Any] ?? [:]
@@ -71,7 +71,7 @@ extension ViewController {
     
     func getProfile() {
         
-        APIManager.apiCall("http://ariel.itcc.net.au/api/v1/auth/get-profile", header: self.token, data: nil, method: .GET) { success, data, error in
+        APIManager.apiCall(Constant.ServerAPI.URL.kGetProfile, header: self.token, data: nil, method: .GET) { success, data, error in
             if let data = data {
                 do {
                     let dict = data as? [String: Any] ?? [:]
